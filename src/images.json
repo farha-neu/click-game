@@ -1,0 +1,40 @@
+[
+    {
+      "id": 1,
+      "alt": "img1",
+      "src":
+        "images/1.jpg"
+    },
+    {
+        "id": 2,
+        "alt": "img2",
+        "src":
+          "images/2.png"
+    },
+    {
+      "id": 3,
+      "alt": "img3",
+      "src":
+        "images/3.png"
+    },
+    {
+      "id": 4,
+      "alt": "img4",
+      "src":
+        "images/4.png"
+    },
+    {
+      "id": 5,
+      "alt": "img5",
+      "src":
+        "images/5.jpg"
+    },
+    {
+      "id": 6,
+      "alt": "img6",
+      "src":
+        "images/6.jpg"
+    }
+  
+  ]
+  
