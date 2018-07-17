@@ -4,11 +4,17 @@ import images from "./../../images.json";
 
 console.log(images);
 
-const Logic = () =>(
-    <div>
-        <ImageCard images={images}/>
-    </div>
-);
+
+class Logic extends React.Component {
+    render(){
+        return(
+            <div>
+                <ImageCard images={images}/>
+            </div>
+        )     
+    }
+
+}
 
 
 export default Logic;
