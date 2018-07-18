@@ -8,10 +8,11 @@ import "./App.css";
 var scoreArr=[];
 var win = false;
 var incorrect = 0;
+var correct = 0;
 
-var styles = {
-    border: "1px solid red"
-};
+// var styles = {
+//     color:"red"
+// };
 
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
     for(var i = 0; i<friends.length; i++){
       if(friends[i].id === id){
         incorrect = 0;
+        correct=1;
         if(friends[i].clicked===0){
           friends[i].clicked = 1;
           if(this.state.totalScore===friends.length-1){
@@ -51,6 +53,7 @@ class App extends Component {
 
         else{
           incorrect = 1;
+          correct =0;
           scoreArr.push(this.state.totalScore);
           console.log(scoreArr);
           for(var j = 0;j<friends.length;j++){
@@ -69,18 +72,19 @@ class App extends Component {
   render() {
     
     return (
-      <Wrapper incorrect={incorrect}>
-        <Title style={this.state.message !== "Click an image to begin" ? styles : {}}
+      <Wrapper>
+        <Title incorrect={incorrect} correct={correct}
          count={this.state.totalScore} message={this.state.message} topScore={this.state.topScore}/>
-        {this.state.friends.map(friend => (
-          <FriendCard 
-            removeFriend={this.removeFriend}
-            id={friend.id}
-            key={friend.id}
-            name={friend.name}
-            image={friend.image}
-          />
-        ))}
+            {this.state.friends.map(friend => (
+              <FriendCard 
+                incorrect={incorrect}
+                removeFriend={this.removeFriend}
+                id={friend.id}
+                key={friend.id}
+                name={friend.name}
+                image={friend.image}
+              />
+            ))}
       </Wrapper>
     );
   }

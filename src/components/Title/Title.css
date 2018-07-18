@@ -6,3 +6,24 @@
   color: #2A77AE;
   margin-bottom: 50px;
 }
+
+
+.incorrect-style{
+  color: red;
+  animation-name: example1;
+  animation-duration: 1s;
+}
+
+.correct-style{
+  color: green;
+}
+
+@keyframes example1 {
+  0%   {color: red;}
+  100%  {color: #2A77AE;}
+}
+
+
+
+
+
