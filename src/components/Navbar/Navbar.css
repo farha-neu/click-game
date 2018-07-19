@@ -1,14 +1,14 @@
 .navbar{
     min-height:70px;
-    font-size: 28px;
     background-color: orangered !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color:lemonchiffon;
+    font-size: 28px;
  }
 
  .badge{
     font-weight: bold;
-    font-size: 33px;
+    font-size: 28px;
 }
 
 .custom{
@@ -18,3 +18,14 @@
 .top{
     margin-top:-2px;
 }
+
+@media screen and (max-width: 768px) { 
+    .navbar {
+        font-size: 22px;
+    }
+    .badge{
+        font-size: 22px;
+    }
+  }
+
+  
