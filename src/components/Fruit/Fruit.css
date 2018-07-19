@@ -1,0 +1,26 @@
+.img-thumbnail{
+    border:5px solid yellowgreen;
+    background: beige; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s ease;
+ }
+
+ .gallery img:hover{
+    cursor: pointer;
+    transform: scale(1.1, 1.1); /** default is 1, scale it to 1.1 */
+    opacity: 1;
+}
+
+.animate-style{
+    animation-name: example;
+    animation-duration: 0.35s;
+  }
+  
+  @keyframes example {
+    0%   {left:0px; right:30px;top:0px; bottom:30px;}
+    20%  {left:30px; right:0px;top:30px; bottom:0px;}
+    40% {left:0px; right:30px;top:0px; bottom:30px;}
+    60%  {left:30px; right:0px;top:30px; bottom:0px;}
+    80% {left:0px; right:30px;top:0px; bottom:30px;}
+    100%  {left:30px; right:0px;top:30px; bottom:0px;}
+  }

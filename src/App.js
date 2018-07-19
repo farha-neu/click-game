@@ -1,92 +1,94 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
-import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
-import friends from "./friends.json";
+import Fruit from "./components/Fruit";
+import Jumbotron from "./components/Jumbotron";
+import Navbar from "./components/Navbar";
+import fruits from "./fruits.json";
 import "./App.css";
 
-var scoreArr=[];
-var win = false;
+
+
+var message = "Click an image to begin!";
+var topScore = 0;
+var totalScore = 0;
 var incorrect = 0;
 var correct = 0;
+var win = 0;
 
-// var styles = {
-//     color:"red"
-// };
-
+function reset(fruits){
+    for(var i = 0; i< fruits.length; i++){
+       if(fruits[i].clicked ===1){
+           fruits[i].clicked = 0;
+       }
+    }
+}
 
 class App extends Component {
-  state = {
-    friends: friends,
-    totalScore : 0,
-    topScore: 0,
-    message : "Click an image to begin"
-  };
+  
+    state={
+        fruits : fruits
+    }
 
-
-  removeFriend = id => {
-    for(var i = 0; i<friends.length; i++){
-      if(friends[i].id === id){
+    clickFruit = id => {
+        var currentId;
         incorrect = 0;
-        correct=1;
-        if(friends[i].clicked===0){
-          friends[i].clicked = 1;
-          if(this.state.totalScore===friends.length-1){
-            for(var k = 0;k<friends.length;k++){
-              friends[k].clicked =0;
+        correct  = 0;
+        //same fruit clicked: incorrect
+        for(var i = 0; i< fruits.length; i++){
+            if(fruits[i].id === id){
+              currentId = i;
+              break;
             }
-            scoreArr.push(friends.length);
-            this.setState({totalScore : this.state.totalScore+1,message:"You won the game! Play again!",topScore:Math.max(...scoreArr)});
-            win = true;
-          }
-          else{
-            if(win===false){
-              this.setState({totalScore : this.state.totalScore+1,message:"You guessed correctly!"});
+        }
+
+        if(fruits[currentId].clicked === 1){
+            fruits[currentId].clicked = 0;
+            totalScore = 0;
+            message = "You guessed incorrectly!";
+            incorrect = 1;
+            reset(fruits);
+        }
+        else{
+            fruits[currentId].clicked = 1;
+            totalScore++;
+            correct = 1;
+            if(totalScore===fruits.length){
+                message="You won! Click to play again!";
+                reset(fruits);
+                win = 1;
             }
             else{
-              this.setState({totalScore : 1,message:"You guessed correctly!"});
-              win = false;
-            } 
-          } 
-          break;
+                message = "You guessed correctly!";
+                if(win===1){
+                    totalScore=1;
+                }
+                win = 0;
+            }
+           
         }
+        console.log(fruits);
+        if(totalScore>topScore){
+            topScore = totalScore
+        }
+         //randomize it
+        this.setState({fruits : this.state.fruits.sort( () => Math.random() - 0.5)});
 
-        else{
-          incorrect = 1;
-          correct =0;
-          scoreArr.push(this.state.totalScore);
-          console.log(scoreArr);
-          for(var j = 0;j<friends.length;j++){
-            friends[j].clicked =0;
-          }
-          this.setState({friends: friends,totalScore : 0,message:"You guessed incorrectly!",topScore:Math.max(...scoreArr)});
-          break;
-        }
-      }
     }
-    this.setState({friends : this.state.friends.sort( () => Math.random() - 0.5)});
-    // console.log(friends);
-  };
-  
 
   render() {
     
-    return (
-      <Wrapper>
-        <Title incorrect={incorrect} correct={correct}
-         count={this.state.totalScore} message={this.state.message} topScore={this.state.topScore}/>
-            {this.state.friends.map(friend => (
-              <FriendCard 
-                incorrect={incorrect}
-                removeFriend={this.removeFriend}
-                id={friend.id}
-                key={friend.id}
-                name={friend.name}
-                image={friend.image}
-              />
-            ))}
-      </Wrapper>
-    );
+      return (
+        <div>
+             <Navbar topScore = {topScore} totalScore={totalScore} correct={correct} incorrect={incorrect}>{message}</Navbar>
+             <Jumbotron/>
+             <div className="container gallery">
+                   <div className="row text-center">
+                        {this.state.fruits.map(fruit => (
+                                <Fruit incorrect={incorrect} alt={fruit.name} src={fruit.image} id={fruit.id} clickFruit={this.clickFruit} key={fruit.id}/>
+                        ))}
+                    </div>
+              </div>
+         </div>
+      );
   }
 }
 

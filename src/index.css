@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Bree Serif', serif;
 }
 
 html, body, #root {
+  margin:0;
   padding: 0;
-  margin: 0;
-  height: 100%;
+  background: orange;
 }

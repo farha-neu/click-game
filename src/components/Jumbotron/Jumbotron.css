@@ -1,0 +1,10 @@
+.jumbotron{
+    margin-top:70px;
+    padding:80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-image: url("images/bg.jpg");
+    background-size: cover;
+}
+.lead{
+    font-size: 24px !important;
+}
