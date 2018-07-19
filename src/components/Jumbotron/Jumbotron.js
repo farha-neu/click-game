@@ -8,7 +8,7 @@ const Jumbotron = props => {
     return(
         <div className="jumbotron jumbotron-fluid text-center">
                 <div className="container">
-                    <h1 className="display-4">Fruit Memory Game!</h1>
+                    <h1 className="display-4">Kids Fruit Memory</h1>
                     <p className="lead">Click a fruit to earn points, but don't click on any more than once!</p>
                 </div>
         </div>

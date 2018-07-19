@@ -25,7 +25,7 @@ const Navbar = (props) => {
         <div className="container justify-content-center">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <span className="badge">  <i className="fab fa-apple"></i>  Memory Game</span>
+                    <span className="badge">  <i className="fab fa-apple"></i>  Kids Fruit Memory</span>
                 </li>
                 
             </ul>

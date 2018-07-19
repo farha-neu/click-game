@@ -4,6 +4,7 @@ import Jumbotron from "./components/Jumbotron";
 import Navbar from "./components/Navbar";
 import fruits from "./fruits.json";
 import "./App.css";
+import Footer from "./components/Footer";
 
 
 
@@ -101,6 +102,7 @@ class App extends Component {
                         ))}
                     </div>
               </div>
+              <Footer />
          </div>
       );
   }
