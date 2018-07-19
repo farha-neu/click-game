@@ -14,6 +14,21 @@ var incorrect = 0; //for color change when lost..sent to navbar
 var correct = 0;//for color change when won..sent to navabr
 var win = 0;
 
+//Fisher-Yates (aka Knuth) Shuffle Algorithm
+//https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+
 function reset(fruits){
     for(var i = 0; i< fruits.length; i++){
        if(fruits[i].clicked ===1){
@@ -65,12 +80,11 @@ class App extends Component {
             }
            
         }
-        console.log(fruits);
         if(totalScore>topScore){
             topScore = totalScore
         }
          //randomize it
-        this.setState({fruits : this.state.fruits.sort( () => Math.random() - 0.5)});
+        this.setState({fruits : shuffle(this.state.fruits)});
 
     }
 
