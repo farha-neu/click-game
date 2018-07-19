@@ -1,4 +1,11 @@
 .gallery{
-  padding-left:100px;
-  padding-right:100px;
+  padding-left:140px;
+  padding-right:140px;
+}
+
+@media screen and (max-width: 768px) { 
+    .gallery{
+      padding-left:30px;
+      padding-right:30px;
+    }
 }

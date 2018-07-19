@@ -10,8 +10,8 @@ import "./App.css";
 var message = "Click an image to begin!";
 var topScore = 0;
 var totalScore = 0;
-var incorrect = 0;
-var correct = 0;
+var incorrect = 0; //for color change when lost..sent to navbar
+var correct = 0;//for color change when won..sent to navabr
 var win = 0;
 
 function reset(fruits){

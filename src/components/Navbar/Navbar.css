@@ -19,7 +19,7 @@
     margin-top:-2px;
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 1200px) { 
     .navbar {
         font-size: 22px;
     }
@@ -27,5 +27,7 @@
         font-size: 22px;
     }
   }
+
+
 
   
