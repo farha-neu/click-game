@@ -15,6 +15,8 @@ var incorrect = 0; //for color change when lost..sent to navbar
 var correct = 0;//for color change when won..sent to navabr
 var win = 0;
 
+
+
 //Fisher-Yates (aka Knuth) Shuffle Algorithm
 //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
@@ -38,6 +40,8 @@ function reset(fruits){
     }
 }
 
+
+
 class App extends Component {
   
     state={
@@ -60,6 +64,8 @@ class App extends Component {
             fruits[currentId].clicked = 0;
             totalScore = 0;
             message = "You guessed incorrectly!";
+            let loseSound = new Audio("audio/lost.wav");
+            loseSound.play();
             incorrect = 1;
             reset(fruits);
         }
@@ -79,7 +85,8 @@ class App extends Component {
                 }
                 win = 0;
             }
-           
+            let winSound = new Audio("audio/correct.wav");
+            winSound.play();
         }
         if(totalScore>topScore){
             topScore = totalScore
