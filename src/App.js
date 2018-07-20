@@ -64,8 +64,6 @@ class App extends Component {
             fruits[currentId].clicked = 0;
             totalScore = 0;
             message = "You guessed incorrectly!";
-            let loseSound = new Audio("audio/lost.wav");
-            loseSound.play();
             incorrect = 1;
             reset(fruits);
         }
@@ -85,8 +83,6 @@ class App extends Component {
                 }
                 win = 0;
             }
-            let winSound = new Audio("audio/correct.wav");
-            winSound.play();
         }
         if(totalScore>topScore){
             topScore = totalScore
